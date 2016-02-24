@@ -9,6 +9,7 @@ app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(__dirname + '/app'));
 app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/app/views'));
 app.use(express.static(__dirname + '/public'));
 
 
@@ -17,7 +18,7 @@ function REST(){
     var self = this;
     self.connectMysql();
 };
-
+/*
 REST.prototype.connectMysql = function() {
     var self = this;
     var pool = mysql.createPool({
@@ -36,7 +37,7 @@ REST.prototype.connectMysql = function() {
         }
     });
 }
-
+*/
 REST.prototype.configureExpress = function(connection) {
       var self = this;
       app.use(bodyParser.urlencoded({ extended: true }));
