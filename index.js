@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public'));
 
 function REST(){
     var self = this;
-    self.connectMysql();
+   // self.connectMysql();
 };
 /*
 REST.prototype.connectMysql = function() {
