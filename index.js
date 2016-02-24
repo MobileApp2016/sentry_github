@@ -16,8 +16,29 @@ app.use(express.static(__dirname + '/public'));
 
 function REST(){
     var self = this;
-   // self.connectMysql();
+   self.connectMysql();
 };
+
+REST.prototype.connectMysql = function() {
+    var self = this;
+    var pool = mysql.createPool({
+        connectionLimit : 100,
+        //This is the databse on heroku
+        host     : 'us-cdbr-iron-east-03.cleardb.net',
+        user     : 'be3556fe3d1b32',
+        password : '88c3f2fe',
+        database : 'heroku_efc0652d23010ec',
+        debug    :  false
+    });
+    pool.getConnection(function(err,connection){
+        if(err) {
+          self.stop(err);
+        } else {
+          self.configureExpress(connection);
+        }
+    });
+}
+
 /*
 REST.prototype.connectMysql = function() {
     var self = this;
@@ -38,6 +59,7 @@ REST.prototype.connectMysql = function() {
     });
 }
 */
+
 REST.prototype.configureExpress = function(connection) {
       var self = this;
       app.use(bodyParser.urlencoded({ extended: true }));
