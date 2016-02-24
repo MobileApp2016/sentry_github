@@ -5,14 +5,14 @@ var md5 = require('MD5');
 var rest = require(__dirname + "/app/REST.js");
 var app  = express();
 
-app.set('port', (process.env.PORT || 3000));
 
+app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/app'));
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/app/views'));
-app.use(express.static(__dirname + '/public'));
 
 
+app.set('port', (process.env.PORT || 3000));
 
 function REST(){
     var self = this;
