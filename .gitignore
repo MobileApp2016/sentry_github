@@ -1,4 +1,8 @@
 ### Node ###
+.env
+Dockerfile
+docker-compose.yml
+
 # Logs
 logs
 *.log

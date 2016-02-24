@@ -5,8 +5,10 @@ var md5 = require('MD5');
 var rest = require(__dirname + "/app/REST.js");
 var app  = express();
 
+app.set('port', (process.env.PORT || 3000));
+
 app.use(express.static(__dirname + '/app'));
-app.use(express.static(__dirname + '/app/views'));
+app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/public'));
 
 
@@ -47,8 +49,8 @@ REST.prototype.configureExpress = function(connection) {
 
 REST.prototype.startServer = function() {
       //The port we're using at the moment
-      app.listen(3000,function(){
-          console.log("All right! Started on Port 3000.");
+      app.listen(app.get('port'), function() {
+        console.log('Project Sentry is running on port', app.get('port'));
       });
 }
 

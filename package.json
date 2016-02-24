@@ -1,14 +1,20 @@
 {
   "name": "sentry",
   "version": "0.0.1",
+  "main": "index.js",
   "scripts": {
-    "start": "node Server.js"
+    "start": "node index.js"
   },
   "dependencies": {
+    "ejs": "2.3.3",
     "body-parser": "~1.13.2",
     "express": "~4.13.1",
     "mysql": "~2.10.2",
     "MD5": "~1.2.1",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/MobileApp2016/Sentry"
+}
 }
