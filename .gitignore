@@ -3,6 +3,7 @@
 Dockerfile
 docker-compose.yml
 
+
 # Logs
 logs
 *.log
@@ -31,6 +32,7 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+swagger-editor
 
 # Optional npm cache directory
 .npm

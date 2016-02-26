@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS (load bootstrap) -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Sentry - Always Watching</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/index.css" rel="stylesheet">
 
 
-    <style>
-        .navbar { border-radius:0; }
-    </style>
-
-    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <!-- JS (load angular, ui-router, jQuery, and our custom js file) -->
+    <script src="js/jquery-2.2.0.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/angular-ui-router.js"></script>
     <script src="routes.js"></script>
-    <script src="controllers/registration_controller.js"></script>
-    <script src="controllers/login_controller.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTUwndh9ZED3trNlGZqcCEjkAb5-bpoUw&signed_in=true&callback=initMap">
+    </script>
+    <script src="js/sentrymap.js"></script>
 </head>
 
 <!-- apply our angular app to our site -->
 <body ng-app="routerApp">
 
 <!-- NAVIGATION -->
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="index.html">AngularUI Router</a>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" role="navigation">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">Sentry</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="map">Map</a></li>
+                <li><a ui-sref="home">Home</a></li>
+                <li><a ui-sref="home2">Home2</a></li>
+                <li><a ui-sref="about">About</a></li>
+                <li><a ui-sref="login">loginTest</a></li>
+                <li><a ui-sref="registration">RegisterTest</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="about">About</a></li>
-    </ul>
+    <!-- /.container -->
 </nav>
 
 <!-- MAIN CONTENT -->
@@ -40,6 +63,9 @@
 
 <div class="text-center">
 </div>
+
+
+
 
 </body>
 </html>

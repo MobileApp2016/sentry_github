@@ -12,6 +12,29 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: 'partials/partial-home.html'
         })
+        .state('weather', {
+            url: '/weather',
+            templateUrl: 'partials/partial-home.html'
+        })
+        .state('home2', {
+            url: '/home2',
+            templateUrl: 'partials/partial-home2.html'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'partials/partial-login.html',
+            controller: 'login_controller.js'
+        })
+        .state('registration', {
+            url: '/Seanishere',
+            templateUrl: 'partials/partial-registration.html'
+        })
+        .state('map', {
+            url: '/map',
+            templateUrl: 'partials/partial-map.html'
+        })
+
+
 
         // nested list with custom controller
         .state('home.list', {

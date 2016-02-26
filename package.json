@@ -1,16 +1,24 @@
 {
   "name": "sentry",
   "version": "0.0.1",
+  "description": "Sentry Application",
+  "license": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
+	  "debug": "~2.2.0",
     "express": "~4.13.1",
     "mysql": "~2.10.2",
-    "MD5": "~1.2.1",
-    "hat": "0.0.3"
+    "md5": "~2.0.0",
+    "hat": "~0.0.3",
+    "swagger-tools": "~0.10.1",
+	  "swagger-express-mw": "~0.6.0",
+    "request": "",
+    "yamljs": "~0.2.5"
+
   },
   "repository": {
   "type": "git",
