@@ -1,0 +1,51 @@
+<div class="container" ng-app="routerApp" ng-controller="groupController as groupCtrl">
+<span style="font-size: 200%;">Sentry Groups</span>
+<button class="btn-warning"ng-click="enableDelete = !enableDelete" ng-show="!enableDelete" style="float: right;">Enable Delete</button>
+<button class="btn-warning"ng-click="enableDelete = !enableDelete" ng-show="enableDelete"  style="float: right;">Disable Delete</button>
+<div class="groupnav">
+  <div ng-init="groupCtrl.getAllGroups();" style="font-size: 100%;">
+
+          <ul style="font-weight: bold; background: #00CCAA; font-size: 125%;">
+              <li >Group ID</li>
+              <li>Group Name</li>
+              <!--<li>Max Size</li>-->
+              <li>Members</li>
+              <li>Date Created</li>
+              <li ng-show="!enableDelete"></li>
+              <li ng-show="enableDelete">Delete</li>
+          </ul>
+
+          <ul ng-repeat="group in groupCtrl.groups">
+              <li>{{ group.group_id }}</li>
+              <li>{{ group.group_name }}</li>
+              <!--<li>{{ group.max_size }}</li>-->
+              <li>{{ group.members }}</li>
+              <li>{{ group.date_created }}</li>
+              <li ng-show="!enableDelete"></li>
+              <li ng-show="enableDelete">
+                <button ng-click="groupCtrl.deleteGroup(group.group_id); groupCtrl.getAllGroups();">Delete</button>
+              </li>
+          </ul>
+
+</div>
+</div>
+
+<!--
+<div id="deleteGroupModal"></div>
+
+<div>
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Delete: {{selectDelete.group_name}}?</h3>
+        </div>
+        <div class="modal-body">
+          Are you sure you wish to delete {{selectDelete.group_name}}?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="yesDelete()">Yes</button>
+            <button class="btn btn-warning" type="button" ng-click="noDelete()">No</button>
+        </div>
+ </script>
+</div>
+-->
+</div>

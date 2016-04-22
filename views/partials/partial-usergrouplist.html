@@ -1,0 +1,83 @@
+<div class="container" ng-app="routerApp" ng-controller="groupController as groupCtrl" ng-click="successMsg = ''; errorMsg = '';">
+<div><span style="font-size: 200%;">Sentry Groups</span>
+    <span class="alert alert-danger" role="alert" style="text-align: center;" ng-show="errorMsg">{{errorMsg}}</span>
+    <span class="alert alert-success" role="alert" style="text-align: center;" ng-show="successMsg">{{successMsg}}</span>
+<button class="btn-primary btn" ng-click="groupCtrl.showmembers = false; "ng-show="groupCtrl.showmembers">Back to Groups</button>
+<button class="btn-warning"ng-click="enableDelete = !enableDelete" ng-show="!enableDelete && !groupCtrl.showmembers" style="float: right;">Enable Delete</button>
+<button class="btn-warning"ng-click="enableDelete = !enableDelete" ng-show="enableDelete && !groupCtrl.showmembers"  style="float: right;">Disable Delete</button>
+</div>
+<div class="container">
+  <div id="memberList">
+
+    <table class="table table-hover table-striped table-bordered" style="font-size: 100%;" ng-show="groupCtrl.showmembers">
+        <thead>
+            <tr ng-show="groupCtrl.groupsmembers[0].user_id" style="font-weight: bold; background: #00CCAA; font-size: 125%;">
+                <td>User ID</td>
+                <td>Username</td>
+                <td>Name</td>
+                <td>Remove</td>
+            </tr>
+            <tr ng-show="!groupCtrl.groupsmembers[0].group_id" >
+                <td colspan="6" style="background: #00CCAA;"></td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-show="groupCtrl.groupsmembers[0].user_id" ng-repeat="member in groupCtrl.groupsmembers">
+                <td>{{ member.user_id }}</td>
+                <td>{{ member.username }}</td>
+                <td>{{ member.firstname }} {{ member.lastname }}</td>
+                <td> <button class="btn-primary btn" ng-click="groupCtrl.removeMemberGroup(member.fkid_group, member.user_id); groupCtrl.getUserGroups(); groupCtrl.showmembers = false;">Remove</button>
+                </td>
+            </tr>
+            <tr ng-show="!groupCtrl.groupsmembers[0].user_id" >
+                <td colspan="4">No groups found.</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+  </div>
+  <div id=groupList>
+
+    <table class="table table-hover table-striped table-bordered"  ng-init="groupCtrl.getUserGroups();"
+     style="font-size: 100%;" ng-show="!groupCtrl.showmembers">
+        <thead>
+            <tr ng-show="groupCtrl.groups[0].group_id" style="font-weight: bold; background: #00CCAA; font-size: 125%;">
+                <td>Group ID</td>
+                <td>Group Name</td>
+                <!--<td>Max Size</td>-->
+                <!--<td>Members</td>-->
+                <td>Date Created</td>
+                <td>Members</td>
+                <td>Leave</td>
+                <td ng-show="!enableDelete"></td>
+                <td ng-show="enableDelete">Delete</td>
+            </tr>
+            <tr ng-show="!groupCtrl.groups[0].group_id" >
+                <td colspan="6" style="background: #00CCAA;"></td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-show="groupCtrl.groups[0].group_id" ng-repeat="group in groupCtrl.groups">
+                <td>{{ group.group_id }}</td>
+                <td>{{ group.group_name }}</td>
+                <td>{{ group.date_created }}</td>
+                <td> <button class="btn-primary btn" ng-click="groupCtrl.getGroupsMembers(group.group_id); groupCtrl.showmembers = true;">Show Members</button>
+                </td>
+                <td> <button class="btn-primary btn" ng-click="groupCtrl.leaveGroup(group.group_id); groupCtrl.getUserGroups();">Leave Group</button>
+                </td>
+                <td ng-show="!enableDelete"></td>
+                <td ng-show="enableDelete">
+                  <button class="btn-warning btn" ng-click="groupCtrl.deleteGroup(group.group_id); groupCtrl.getUserGroups();">Delete</button>
+                </td>
+            </tr>
+            <tr ng-show="!groupCtrl.groups[0].group_id" >
+                <td colspan="6" style="text-align: center;"><h2>No groups found.</h2></td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+</div>

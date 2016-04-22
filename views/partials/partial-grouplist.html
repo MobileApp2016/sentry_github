@@ -1,0 +1,58 @@
+<div class="container" ng-app="routerApp" ng-controller="groupController as groupCtrl" ng-click="errorMsg = ''; successMsg = '';">
+<div>
+  <span style="font-size: 200%;">Sentry Groups</span>
+  <span class="alert alert-danger" role="alert" style="text-align: center;" ng-show="errorMsg">{{errorMsg}}</span>
+  <span class="alert alert-success" role="alert" style="text-align: center;" ng-show="successMsg">{{successMsg}}</span>
+</div>
+<button class="btn-warning"ng-click="enableDelete = !enableDelete" ng-show="!enableDelete" style="float: right;">Enable Delete</button>
+<button class="btn-warning"ng-click="enableDelete = !enableDelete" ng-show="enableDelete"  style="float: right;">Disable Delete</button>
+<table class="table table-hover table-striped table-bordered"  ng-init="groupCtrl.getAllGroups();"
+ style="font-size: 100%;">
+    <thead>
+        <tr style="font-weight: bold; background: #00CCAA; font-size: 125%;">
+            <td>Group ID</td>
+            <td>Group Name</td>
+            <!--<td>Max Size</td>-->
+            <td>Members</td>
+            <td>Date Created</td>
+            <td>Join</td>
+            <td ng-show="!enableDelete"></td>
+            <td ng-show="enableDelete">Delete</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="group in groupCtrl.groups">
+            <td>{{ group.group_id }}</td>
+            <td>{{ group.group_name }}</td>
+            <!--<td>{{ group.max_size }}</td>-->
+            <td>{{ group.members }}</td>
+            <td>{{ group.date_created }}</td>
+            <td> <button class="btn-primary btn" ng-click="groupCtrl.joinGroup(group.group_id);">Join</button> </td>
+            <td ng-show="!enableDelete"></td>
+            <td ng-show="enableDelete">
+              <button class="btn-warning btn-xs" ng-click="groupCtrl.deleteGroup(group.group_id); groupCtrl.getAllGroups();">Delete</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<!--
+<div id="deleteGroupModal"></div>
+
+<div>
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Delete: {{selectDelete.group_name}}?</h3>
+        </div>
+        <div class="modal-body">
+          Are you sure you wish to delete {{selectDelete.group_name}}?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="yesDelete()">Yes</button>
+            <button class="btn btn-warning" type="button" ng-click="noDelete()">No</button>
+        </div>
+ </script>
+</div>
+-->
+</div>

@@ -1,24 +1,59 @@
 
-    	<script src="./controllers/registration_controller.js"></script>
-    <div class="container" ng-app="registrationApp" ng-controller="registrationController as registrationCtrl">
-      <form class="registration-form" ng-submit="registrationCtrl.postRegistration()" style="max-width: 300px; margin: 0 auto;">
-        <h2>Please Register</h2>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="registrationCtrl.inputData.username" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
-        <span class="text-danger" ng-show="errorMsgUsername">{{errorMsgUsername}}</span>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required  ng-change="registrationCtrl.checkPassword()" ng-model="registrationCtrl.inputData.password" style="border-top-left-radius: 0; border-top-right-radius: 0;">
-        <label for="inputPasswordConfirm" class="sr-only">Confirm Password</label>
-        <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm Password" required  ng-change="registrationCtrl.checkPassword()" ng-model="registrationCtrl.inputData.passwordConfirm" style="border-top-left-radius: 0; border-top-right-radius: 0;">
-        <span class="text-danger" ng-show="errorMsgConfrim">{{errorMsgConfrim}}</span>
-        <label for="inputEmail" class="sr-only">E-Mail</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="email01@aol.com" required ng-model="registrationCtrl.inputData.email" style="border-top-left-radius: 0; border-top-right-radius: 0;">
-        <span class="text-danger" ng-show="errorMsgEmail">{{errorMsgEmail}}</span>
-        <label for="inputPhone" class="sr-only">Phone Number</label>
-        <input type="tel" id="inputPhone" class="form-control" placeholder="(xxx)-xxx-xxxx" ng-model="registrationCtrl.inputData.phone" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+  <!--  	<script src="./controllers/registration_controller.js"></script> -->
+  <div ng-controller="registrationController">
+    <form  ng-submit="postRegistration()" style="max-width: 500px; margin-left: 10%;">
 
-		<br>
-		<div class="alert alert-danger" role="alert" ng-show="errorMsg">{{errorMsg}}</div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-      </form>
-    </div>
+      <h2>Please Register</h2>
+      <table>
+        <tr>
+          <td colspan="2" class="alert alert-success" role="alert" style="text-align: center;" ng-show="successMsg">{{successMsg}}</td>
+        </tr>
+        <tr>
+          <td><label for="inputUsername" >Username</label></td>
+          <td><input type="text" id="inputUsername" placeholder="Username" minlength="4" required autofocus ng-model="inputData.username" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"><div class="error"  ng-show="errorMsgUsername">{{errorMsgUsername}}</div></td>
+        </tr>
+        <tr>
+          <td><label for="inputFirstname" >Firstname</label></td>
+          <td><input type="text" id="inputFirstname" placeholder="Firstname" required  ng-model="inputData.firstname" ></td>
+        </tr>
+        <tr>
+          <td><label for="inputLastname" >Lastname</label></td>
+          <td><input type="text" id="inputLastname" placeholder="Lastname" required ng-model="inputData.lastname" ></td>
+        </tr>
+        <tr>
+          <td><label for="inputPassword" >Password</label></td>
+          <td><input type="password" id="inputPassword" placeholder="Password" required minlength="8" ng-change="checkPassword()" ng-model="inputData.password" ></td>
+        </tr>
+        <tr>
+          <td><label for="inputPasswordConfirm">Confirm Password</label></td>
+          <td><input type="password" id="inputPasswordConfirm" placeholder="Confirm Password" required minlength="8" ng-change="checkPassword()" ng-model="inputData.passwordConfirm" ></td>
+        </tr>
+        <tr>
+          <td colspan="2"><div class="error" ng-show="errorMsgConfrim">{{errorMsgConfrim}}</div></td>
+        </tr>
+        <tr>
+          <td><label for="inputEmail">E-Mail</label></td>
+          <td><input type="email" id="inputEmail" placeholder="email01@aol.com" required ng-model="inputData.email">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><div class="error" ng-show="errorMsgEmail">{{errorMsgEmail}}</div></td>
+        </tr>
+        <tr>
+          <td><label for="inputPhone" class="sr-only">Phone Number</label></td>
+          <td><input type="tel" id="inputPhone" placeholder="(xxx)-xxx-xxxx" ng-model="inputData.phone"></td>
+        </tr>
+        <tr>
+          <td>
+              <div class="error" ng-show="errorMsg">{{errorMsg}}</div>
+          </td>
+          <td colspan="2">
+            <input type="submit" value="Register">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>

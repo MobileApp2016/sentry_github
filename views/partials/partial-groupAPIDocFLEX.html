@@ -1,0 +1,189 @@
+<div class="container" ng-app="routerApp" ng-controller="groupController as groupCtrl">
+  <span style="font-size: 100%;"><h3>Sentry Groups API Docmunetation</h3></span>
+
+
+  <div class="apidoc-container">
+    <div>
+      <h2 class="apidoc-title"><b>GET: &nbsp &nbsp &nbsp /groups &nbsp &nbsp &nbsp Gets information of all groups.</b>
+        <button class="apidoc-button"ng-click="expandGetGroupsPara = !expandGetGroupsPara" ng-show="!expandGetGroupsPara" style="float: right;">Expand</button>
+        <button class="apidoc-button"ng-click="expandGetGroupsPara = !expandGetGroupsPara" ng-show="expandGetGroupsPara"  style="float: right;">Compress</button>
+      </h2>
+    </div>
+  <div class="apidoc-body" ng-show="expandGetGroupsPara">
+    <table class="apidoc-table" style="border-collapse: collapse; border-style: solid; border-color: white; border-width: medium;"
+        <thead>
+            <tr>
+              <td>Parameters</td>
+              <td>Type</td>
+              <td>Description</td>
+              <td>Location</td>
+              <td>Examples</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>None</td>
+              <td>N/A</td>
+              <td>No Parameters Needed.</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+
+  <div class="apidoc-container">
+    <span>
+      <h2 class="apidoc-title"><b>POST: &nbsp &nbsp &nbsp /groups &nbsp &nbsp &nbsp Creates a new group.</b>
+        <button class="apidoc-button"ng-click="expandPostGroupsPara = !expandPostGroupsPara" ng-show="!expandPostGroupsPara" style="float: right;">Expand</button>
+        <button class="apidoc-button"ng-click="expandPostGroupsPara = !expandPostGroupsPara" ng-show="expandPostGroupsPara"  style="float: right;">Compress</button>
+      </h2>
+    </span>
+  <div class="apidoc-body" ng-show="expandPostGroupsPara">
+    <table class="apidoc-table" style="border-style: solid; border-color: white; border-width: medium;"
+        <thead>
+            <tr>
+                <td>Parameters</td>
+                <td>Type</td>
+                <td>Description</td>
+                <td>Location</td>
+                <td>Examples</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>groupid</td>
+              <td>string</td>
+              <td>The unique ID of the group. Created by the controller</td>
+              <td>body</td>
+              <td>7F72822C7F3E, 92ACABEF843E, 8B511BCDC0C9</td>
+            </tr>
+            <tr>
+              <td>groupname</td>
+              <td>string</td>
+              <td>The name of the group.</td>
+              <td>body</td>
+              <td>Emerald Dwarves, Sentry Team, Louieville Sluggers</td>
+            </tr>
+            <tr>
+              <td>maxsize</td>
+              <td>integer</td>
+              <td>The max amount of members allowed in the group.</td>
+              <td>body</td>
+              <td>2, 5, 25, 18</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+
+  <div class="apidoc-container">
+    <div>
+      <h2 class="apidoc-title"><b>GET: &nbsp &nbsp &nbsp /groups/:groupname &nbsp &nbsp &nbsp Gets a group by it's group name.</b>
+        <button class="apidoc-button"ng-click="expandGetGroupsGroupNamePara = !expandGetGroupsGroupNamePara" ng-show="!expandGetGroupsGroupNamePara" style="float: right;">Expand</button>
+        <button class="apidoc-button"ng-click="expandGetGroupsGroupNamePara = !expandGetGroupsGroupNamePara" ng-show="expandGetGroupsGroupNamePara"  style="float: right;">Compress</button>
+      </h2>
+    </div>
+  <div class="apidoc-body" ng-show="expandGetGroupsGroupNamePara">
+    <table class="apidoc-table" style="border-style: solid; border-color: white; border-width: medium;"
+        <thead>
+            <tr>
+                <td>Parameters</td>
+                <td>Type</td>
+                <td>Description</td>
+                <td>Location</td>
+                <td>Examples</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>groupname</td>
+              <td>string</td>
+              <td>The name of the group.</td>
+              <td>path</td>
+              <td>Emerald Dwarves, Sentry Team, Louieville Sluggers</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+
+  <div class="apidoc-container">
+    <div>
+      <h2 class="apidoc-title"><b>PUT: &nbsp &nbsp &nbsp /groups/:groupid &nbsp &nbsp &nbsp Updates a group by it's group id.</b>
+        <button class="apidoc-button"ng-click="expandPutGroupsGroupIdPara = !expandPutGroupsGroupIdPara" ng-show="!expandPutGroupsGroupIdPara" style="float: right;">Expand</button>
+        <button class="apidoc-button"ng-click="expandPutGroupsGroupIdPara = !expandPutGroupsGroupIdPara" ng-show="expandPutGroupsGroupIdPara"  style="float: right;">Compress</button>
+      </h2>
+    </div>
+  <div class="apidoc-body" ng-show="expandPutGroupsGroupIdPara">
+    <table class="apidoc-table" style="border-style: solid; border-color: white; border-width: medium;"
+        <thead>
+            <tr>
+                <td>Parameters</td>
+                <td>Type</td>
+                <td>Description</td>
+                <td>Location</td>
+                <td>Examples</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>groupid</td>
+              <td>string</td>
+              <td>The unique ID of the group.</td>
+              <td>path</td>
+              <td>7F72822C7F3E, 92ACABEF843E, 8B511BCDC0C9</td>
+            </tr>
+            <tr>
+              <td>groupname</td>
+              <td>string</td>
+              <td>The name of the group.</td>
+              <td>body</td>
+              <td>Emerald Dwarves, Sentry Team, Louieville Sluggers</td>
+            </tr>
+            <tr>
+              <td>maxsize</td>
+              <td>integer</td>
+              <td>The max amount of members allowed in the group.</td>
+              <td>body</td>
+              <td>2, 5, 25, 18</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+
+  <div class="apidoc-container">
+    <div>
+      <h2 class="apidoc-title"><b>DELETE: &nbsp &nbsp &nbsp /groups/:groupid &nbsp &nbsp &nbsp Deletes a group by it's group id.</b>
+        <button class="apidoc-button"ng-click="expandDeleteGroupsGroupIdPara = !expandDeleteGroupsGroupIdPara" ng-show="!expandDeleteGroupsGroupIdPara" style="float: right;">Expand</button>
+        <button class="apidoc-button"ng-click="expandDeleteGroupsGroupIdPara = !expandDeleteGroupsGroupIdPara" ng-show="expandDeleteGroupsGroupIdPara"  style="float: right;">Compress</button>
+      </h2>
+    </div>
+  <div class="apidoc-body" ng-show="expandDeleteGroupsGroupIdPara">
+    <table class="apidoc-table" style="border-style: solid; border-color: white; border-width: medium;"
+        <thead>
+             <tr>
+                <td>Parameters</td>
+                <td>Type</td>
+                <td>Description</td>
+                <td>Location</td>
+                <td>Examples</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>groupid</td>
+              <td>string</td>
+              <td>The unique ID of the group.</td>
+              <td>path</td>
+              <td>7F72822C7F3E, 92ACABEF843E, 8B511BCDC0C9</td>
+            </tr>
+            <tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+
+  </div>

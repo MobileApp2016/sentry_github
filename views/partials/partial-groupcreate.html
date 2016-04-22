@@ -1,0 +1,28 @@
+
+    <div class="container" ng-app="routerApp" ng-controller="groupController as groupCtrl">
+      <form class="login-form" ng-submit="groupCtrl.postGroup()" style="max-width: 300px; margin: 0 auto;">
+        <h2>Create a Group</h2>
+        <label for="inputGroupName" class="sr-only">Group Name</label>
+        <input type="text" id="inputGroupName" class="form-control" placeholder="Group Name" required
+        ng-model="groupCtrl.inputData.groupname" >
+        <label for="inputMaxSize" class="sr-only">Max Size</label>
+        <select class="form-control" type="number" id="inputMaxSize" required
+      ng-model="groupCtrl.inputData.maxsize" ng-model="groupCtrl.inputData.maxsize" ng-init="groupCtrl.inputData.maxsize='placeholder'">
+           <option value="placeholder" disabled hidden ng-selected="true"> Select Max Group Size </option>
+          <option ng-repeat="i in groupCtrl.getMaxSizeNumber(groupCtrl.maxSizeNumber) track by $index"
+           value={{$index+1}} >{{$index+1}}</option>
+
+        </select>
+		<br>
+		<div class="alert alert-danger" role="alert" ng-show="errorMsg">{{errorMsg}}</div>
+    <div class="alert alert-success" role="alert" ng-show="successMsg">{{successMsg}}</div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+      </form>
+      <!--
+      <div>
+          <button class="btn btn-lg btn-primary btn-block" ng-click="groupCtrl.genHex()">Generate Hex ID</button>
+          <div>{{groupCtrl.hexIDFinal}}</div>
+          <div>{{groupCtrl.inputData.maxsize}}</div>
+      </div>
+    -->
+    </div>

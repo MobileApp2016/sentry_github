@@ -1,0 +1,55 @@
+
+    <div class="container" ng-app="routerApp" ng-controller="groupController as groupCtrl" ng-click="successMsg = ''; errorMsg = '';">
+      <form class="login-form" ng-submit="groupCtrl.getGroupsByName()" style="max-width: 300px; margin: 0 auto;">
+        <h2>Find a Group</h2>
+        <label for="inputGroupName" class="sr-only">Group Name</label>
+        <input type="text" id="inputGroupName" class="form-control" placeholder="Group Name" required
+        ng-model="groupCtrl.inputData.groupname" >
+		<br>
+    <div class="alert alert-success" role="alert" ng-show="successMsg">{{successMsg}}</div>
+		<div class="alert alert-danger" role="alert" ng-show="errorMsg">{{errorMsg}}</div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+      </form>
+      <!--
+      <div>
+          <button class="btn btn-lg btn-primary btn-block" ng-click="groupCtrl.genHex()">Generate Hex ID</button>
+          <div>{{groupCtrl.hexIDFinal}}</div>
+          <div>{{groupCtrl.inputData.maxsize}}</div>
+      </div>
+    -->
+    <br /><br />
+    <button class="btn-warning" ng-click="enableDelete = !enableDelete" ng-show="!enableDelete  && groupCtrl.groupFound" style="float: right;">Enable Delete</button>
+    <button class="btn-warning" ng-click="enableDelete = !enableDelete" ng-show="enableDelete  && groupCtrl.groupFound"  style="float: right;">Disable Delete</button>
+    <table class="table table-hover table-striped table-bordered"
+     style="font-size: 100%;" ng-show="groupCtrl.groupFound">
+        <thead>
+            <tr style="font-weight: bold; background: #00CCAA; font-size: 125%;">
+                <td>Group ID</td>
+                <td>Group Name</td>
+                <td>Max Size</td>
+                <td>Members</td>
+                <td>Date Created</td>
+                <td>Join</td>
+                <td ng-show="!enableDelete"></td>
+                <td ng-show="enableDelete">Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="group in groupCtrl.groups">
+                <td>{{ group.group_id }}</td>
+                <td>{{ group.group_name }}</td>
+                <td>{{ group.max_size }}</td>
+                <td>{{ group.members }}</td>
+                <td>{{ group.date_created }}</td>
+                <td> <button class="btn-primary btn" ng-click="groupCtrl.joinGroup(group.group_id);">Join</button> </td>
+                <td ng-show="!enableDelete"></td>
+                <td ng-show="enableDelete">
+                  <button class="btn-warning btn-xs" ng-click="groupCtrl.deleteGroup(group.group_id); groupCtrl.getGroupsByName(); ">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    </div>

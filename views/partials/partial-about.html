@@ -1,18 +1,63 @@
-<div class="jumbotron text-center">
-    <h1>The login/registration Page</h1>
-    <p>This page demonstrates <span class="text-danger">multiple</span> and <span class="text-danger">named</span> views.</p>
-</div>
+<header class="header-image" style="
+display: block;
+text-align: center;
+img-responsive;
+width: auto;
+height: auto;
+background: url('img/sentrylogo.png')no-repeat center center scroll;">
+</header>
+<!--
+<div class="container" style="text-align: center; width: auto;
+height: auto;">
+    <div class="headline">
+        <div class="container">
+        <h1><b>Sentry</b></h1>
+        <img class="featurette-image" src="img/sentrylogo.png" style="text-align: center; width auto; height: auto; max-width: 60% min-width: 50%;">
 
-<div class="row">
+            <h2>Always Watching</h2>
+        </div>
+    </div>
+    </div>
+  -->
+<!-- Page Content -->
+<div class="container">
 
-    <div class="col-sm-6">
-        <div ui-view="columnOne"></div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette" id="about">
+        <img class="featurette-image img-circle img-responsive pull-right" src="img/sentrylogo.png" style="width: 40%; height: 35%;">
+        <h2 class="featurette-heading">Project: Sentry
+        </h2><h4 class="text-primary">Created By: Derek Lai, Josh Haugen, and TJ Stankus</h4>
+        <p class="lead"> Project: Sentry keeps track of your friends, familiy, co-workers, employees, and anyone with a phone or computer with GPS capabilities.
+
+        </p>
+    </div>
+
+    <hr class="featurette-divider">
+<!--
+    <div class="featurette" id="services">
+        <img class="featurette-image img-circle img-responsive pull-left" src="img/sentrylogo.png" style="width: 40%; height: 35%;">
+        <h2 class="featurette-heading">The Second Heading
+            <span class="text-muted">Is Pretty Cool Too.</span>
+        </h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette" id="contact">
+        <img class="featurette-image img-circle img-responsive pull-right" src="img/sentrylogo.png" style="width: 40%; height: 35%;">
+        <h2 class="featurette-heading">The Third Heading
+            <span class="text-muted">Will Seal the Deal.</span>
+        </h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
     </div>
 
 
-    <div class="col-sm-6">
-        <div ui-view="columnTwo"></div>
-    </div>
-
+    <hr class="featurette-divider">
+  -->
 
 </div>
+
+<div ui-view></div>

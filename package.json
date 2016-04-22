@@ -14,12 +14,7 @@
     "mysql": "~2.10.2",
     "md5": "~2.0.0",
     "hat": "~0.0.3",
-    "swagger-tools": "~0.10.1",
-	"swagger-express-mw": "~0.6.0",
-	"swagger-js-codegen": "~1.1.8",
-    "request": "",
-    "yamljs": "~0.2.5"
-
+    "request": ""
   },
   "repository": {
   "type": "git",

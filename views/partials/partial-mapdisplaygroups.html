@@ -1,0 +1,31 @@
+
+    <div class="container" ng-app="routerApp" ng-controller="mapController as mapCtrl" ng-init="mapCtrl.getLocationCurrent();">
+
+      <div class="login-form"  style="max-width: 300px; margin: 0 auto;" ng-show="groupFound" ng-hide="!groupFound">
+        <h2> You Are Not In A Group. </h2>
+      </div>
+
+      <div class="login-form"  style="max-width: 300px; margin: 0 auto;" ng-show="!groupFound" ng-hide="groupFound">
+        <h2>Display Group Map</h2>
+        <label for="inputGroupName" class="sr-only">Group Name</label>
+        <div class="form-group">
+          <label for="groupSelectBox">Select Group To View:</label>
+            <select class="form-control" id="inputGroupName" ng-model='groupSelectBox' ng-change="mapCtrl.displayGroupMap();">
+              <option ng-repeat="group in mapCtrl.groups" value='{{ group.group_id }}'> {{ group.group_name }} </option>
+            </select>
+        </div>
+        <div ng-show="groupSelectBox" style="text-align: center;">
+          <span class="btn-xs btn-primary"  ng-click="mapCtrl.getLocationCurrent(); mapCtrl.displayGroupMap();">Get Coordinates</span>
+          <span class="btn-xs btn-primary" ng-click="mapCtrl.getLocationWatch(); mapCtrl.displayGroupMap();">Watch Coordinates</span>
+        </div>
+        <div ng-show="groupSelectBox" style="text-align: center;">
+          <div ng-show="mapCtrl.latitude">Latitude: <input type="text" ng-model="mapCtrl.latitude"></input></div>
+          <div ng-show="mapCtrl.longitude">Longitude: <input type="text" ng-model="mapCtrl.longitude"></input></div>
+        </div>
+		  <br>
+		  <div class="alert alert-danger" role="alert" ng-show="errorMsg">{{errorMsg}}</div>
+      </div>
+
+    </div>
+
+    <div id="googleMap" style="width:100%;height:600px;"></div>

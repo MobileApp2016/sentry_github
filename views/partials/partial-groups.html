@@ -1,0 +1,21 @@
+<div class="jumbotron text-center" ng-controller="groupController">
+    <h1>Welcome {{username}}</h1>
+    <p>Your <span class="text-primary">Dashboard</span></p>
+
+    <div class="groupnav">
+      <a ui-sref=".usergrouplist" class="btn btn-primary">Your Groups</a>
+      <a ui-sref=".usergroupupdate" class="btn btn-primary">Update Your Groups</a>
+      <a ui-sref=".groupcreate" class="btn btn-primary">Create a Group</a>
+      <a ui-sref=".groupfind" class="btn btn-primary">Find a Group</a>
+      <a ui-sref="map" class="btn btn-primary">Sentry Map</a>
+      <!-- TESTING -->
+      <!--
+      <a ui-sref=".grouplist" class="btn btn-primary">Get All Groups</a>
+      <a ui-sref=".groupupdate" class="btn btn-primary">Update a Group</a>
+      <a ui-sref=".groupAPIDoc" class="btn btn-primary">Describe the API</a>
+      -->
+    </div>
+
+</div>
+
+<div ui-view style="margin-left: -30px;"> <h2 style="text-align: center;">Select an option.</h2> </div>

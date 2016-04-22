@@ -1,0 +1,189 @@
+<div class="container" ng-app="routerApp" ng-controller="groupController as groupCtrl">
+<span style="font-size: 200%;">Sentry Groups API Docmunetation</span>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title"><b>GET: &nbsp &nbsp &nbsp /groups &nbsp &nbsp &nbsp Gets information of all groups.</b>
+      <button class="btn-default"ng-click="expandGetGroupsPara = !expandGetGroupsPara" ng-show="!expandGetGroupsPara" style="float: right;">Expand</button>
+      <button class="btn-default"ng-click="expandGetGroupsPara = !expandGetGroupsPara" ng-show="expandGetGroupsPara"  style="float: right;">Compress</button>
+    </h2>
+  </div>
+<div class="panel-body" ng-show="expandGetGroupsPara">
+  <table class="table table-hover table-striped table-bordered" style="font-size: 100%;">
+      <thead>
+          <tr style="font-weight: bold; background: #00CCAA; font-size: 100%;">
+            <td>Parameters</td>
+            <td>Type</td>
+            <td>Description</td>
+            <td>Location</td>
+            <td>Examples</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>None</td>
+            <td>N/A</td>
+            <td>No Parameters Needed.</td>
+            <td>N/A</td>
+            <td>N/A</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h2 class="panel-title"><b>POST: &nbsp &nbsp &nbsp /groups &nbsp &nbsp &nbsp Creates a new group.</b>
+      <button class="btn-default"ng-click="expandPostGroupsPara = !expandPostGroupsPara" ng-show="!expandPostGroupsPara" style="float: right;">Expand</button>
+      <button class="btn-default"ng-click="expandPostGroupsPara = !expandPostGroupsPara" ng-show="expandPostGroupsPara"  style="float: right;">Compress</button>
+    </h2>
+  </div>
+<div class="panel-body" ng-show="expandPostGroupsPara">
+  <table class="table table-hover table-striped table-bordered" style="font-size: 100%;">
+      <thead>
+          <tr <tr class="success" style="font-weight: bold; font-size: 100%;">
+              <td>Parameters</td>
+              <td>Type</td>
+              <td>Description</td>
+              <td>Location</td>
+              <td>Examples</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>groupid</td>
+            <td>string</td>
+            <td>The unique ID of the group. Created by the controller</td>
+            <td>body</td>
+            <td>7F72822C7F3E, 92ACABEF843E, 8B511BCDC0C9</td>
+          </tr>
+          <tr>
+            <td>groupname</td>
+            <td>string</td>
+            <td>The name of the group.</td>
+            <td>body</td>
+            <td>Emerald Dwarves, Sentry Team, Louieville Sluggers</td>
+          </tr>
+          <tr>
+            <td>maxsize</td>
+            <td>integer</td>
+            <td>The max amount of members allowed in the group.</td>
+            <td>body</td>
+            <td>2, 5, 25, 18</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title"><b>GET: &nbsp &nbsp &nbsp /groups/:groupname &nbsp &nbsp &nbsp Gets a group by it's group name.</b>
+      <button class="btn-default"ng-click="expandGetGroupsGroupNamePara = !expandGetGroupsGroupNamePara" ng-show="!expandGetGroupsGroupNamePara" style="float: right;">Expand</button>
+      <button class="btn-default"ng-click="expandGetGroupsGroupNamePara = !expandGetGroupsGroupNamePara" ng-show="expandGetGroupsGroupNamePara"  style="float: right;">Compress</button>
+    </h2>
+  </div>
+<div class="panel-body" ng-show="expandGetGroupsGroupNamePara">
+  <table class="table table-hover table-striped table-bordered table-responsive" style="font-size: 100%;">
+      <thead>
+          <tr style="font-weight: bold; background: #00CCAA; font-size: 100%;">
+              <td>Parameters</td>
+              <td>Type</td>
+              <td>Description</td>
+              <td>Location</td>
+              <td>Examples</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>groupname</td>
+            <td>string</td>
+            <td>The name of the group.</td>
+            <td>path</td>
+            <td>Emerald Dwarves, Sentry Team, Louieville Sluggers</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+</div>
+
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h2 class="panel-title"><b>PUT: &nbsp &nbsp &nbsp /groups/:groupid &nbsp &nbsp &nbsp Updates a group by it's group id.</b>
+      <button class="btn-default"ng-click="expandPutGroupsGroupIdPara = !expandPutGroupsGroupIdPara" ng-show="!expandPutGroupsGroupIdPara" style="float: right;">Expand</button>
+      <button class="btn-default"ng-click="expandPutGroupsGroupIdPara = !expandPutGroupsGroupIdPara" ng-show="expandPutGroupsGroupIdPara"  style="float: right;">Compress</button>
+    </h2>
+  </div>
+<div class="panel-body" ng-show="expandPutGroupsGroupIdPara">
+  <table class="table table-hover table-striped table-bordered" style="font-size: 100%;">
+      <thead>
+          <tr class="warning" style="font-weight: bold; font-size: 100%;">
+              <td>Parameters</td>
+              <td>Type</td>
+              <td>Description</td>
+              <td>Location</td>
+              <td>Examples</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>groupid</td>
+            <td>string</td>
+            <td>The unique ID of the group.</td>
+            <td>path</td>
+            <td>7F72822C7F3E, 92ACABEF843E, 8B511BCDC0C9</td>
+          </tr>
+          <tr>
+            <td>groupname</td>
+            <td>string</td>
+            <td>The name of the group.</td>
+            <td>body</td>
+            <td>Emerald Dwarves, Sentry Team, Louieville Sluggers</td>
+          </tr>
+          <tr>
+            <td>maxsize</td>
+            <td>integer</td>
+            <td>The max amount of members allowed in the group.</td>
+            <td>body</td>
+            <td>2, 5, 25, 18</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+</div>
+
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h2 class="panel-title"><b>DELETE: &nbsp &nbsp &nbsp /groups/:groupid &nbsp &nbsp &nbsp Deletes a group by it's group id.</b>
+      <button class="btn-default"ng-click="expandDeleteGroupsGroupIdPara = !expandDeleteGroupsGroupIdPara" ng-show="!expandDeleteGroupsGroupIdPara" style="float: right;">Expand</button>
+      <button class="btn-default"ng-click="expandDeleteGroupsGroupIdPara = !expandDeleteGroupsGroupIdPara" ng-show="expandDeleteGroupsGroupIdPara"  style="float: right;">Compress</button>
+    </h2>
+  </div>
+<div class="panel-body" ng-show="expandDeleteGroupsGroupIdPara">
+  <table class="table table-hover table-striped table-bordered" style="font-size: 100%;">
+      <thead>
+           <tr class="danger" style="font-weight: bold; font-size: 100%;">
+              <td>Parameters</td>
+              <td>Type</td>
+              <td>Description</td>
+              <td>Location</td>
+              <td>Examples</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>groupid</td>
+            <td>string</td>
+            <td>The unique ID of the group.</td>
+            <td>path</td>
+            <td>7F72822C7F3E, 92ACABEF843E, 8B511BCDC0C9</td>
+          </tr>
+          <tr>
+      </tbody>
+  </table>
+</div>
+</div>
+
+</div>

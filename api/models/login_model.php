@@ -1,5 +1,4 @@
 <?php
-
 // Make sure all the required variables are set, if not then exit
 if (!isset($_REQUEST['username']) && !isset($_REQUEST['password'])) {
 	exit;
