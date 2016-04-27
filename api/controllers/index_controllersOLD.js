@@ -77,7 +77,6 @@ routerApp.controller('loginController', ['$scope', '$http', function ($scope, $h
             .success(function (data, status, headers, config) {
 
                 if (data.status === 'true') {
-                    //alert("token: " + data.results[0].apikey + "\nuser id: " + data.results[0].user_id);
                     //localStorage.setItem("username", data.results[0].username);
                     //localStorage.setItem("password", data.results[0].password);
                     localStorage.setItem("token", data.results[0].apikey);

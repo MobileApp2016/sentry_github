@@ -5,9 +5,9 @@ routerApp.factory("AuthService", function ($http) {
         if (!(localStorage.getItem("user_id") === null) && !(localStorage.getItem("token") === null)) {
             //alert("UserID: " + localStorage.getItem("communit_user_id") + "  UserToken: " + localStorage.getItem("communit_user_token"));
             ////console.log(localStorage.getItem("username") + " " + localStorage.getItem("password"))
-            var encodedData = 'user_id=' +
+            var encodedData = 'username=' +
                 encodeURIComponent(localStorage.getItem("user_id")) +
-                '&user_token=' + encodeURIComponent(localStorage.getItem("token"));
+                '&password=' + encodeURIComponent(localStorage.getItem("token"));
             ////console.log("encodedData: " + encodedData);
            return $http({
                 method: 'POST',
@@ -26,7 +26,7 @@ routerApp.factory("AuthService", function ($http) {
                             //console.log("http: false");
                             //localStorage.removeItem("username");
                             //localStorage.removeItem("password");
-                            localStorage.removeItem("user_token");
+                            localStorage.removeItem("token");
                             localStorage.removeItem("user_id");
 
                            return false;
@@ -166,7 +166,7 @@ routerApp.controller('groupController', ['$scope', '$http', function($scope, $ht
 				$scope.successMsg = '';
 				$scope.errorMsg = data.description;
 			});
-	};
+	}
 
 	vm.leaveGroup = function(groupid) {
 
@@ -474,12 +474,6 @@ routerApp.controller('mapController', ['$scope', '$http', function($scope, $http
     }
 
     vm.displayGroupMap = function() {
-    	marker_ids.length = 0;
-        users_names.length = 0;
-        marker_latitudes.length = 0;
-        marker_longitudes.length = 0;
-        marker_latlngs.length = 0;
-        marker_pin_colors.length = 0;
         var groupid = $( "#inputGroupName option:selected" ).val();
         var groupname = $( "#inputGroupName option:selected" ).text();
         $http({
@@ -530,7 +524,6 @@ routerApp.controller('mapController', ['$scope', '$http', function($scope, $http
     }
 
     function initializeFilledCommunity() {
-    	bounds = new google.maps.LatLngBounds();
         var mapProp = {
             center: new google.maps.LatLng(51.508742, -0.120850),
             zoom: 5,

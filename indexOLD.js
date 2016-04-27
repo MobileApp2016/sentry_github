@@ -29,8 +29,7 @@ app.get("/true", function (req, res) {
 });
 
 app.post("/authenticate", function (req, res) {
-    console.log(req.headers);
-     console.log(req.body);
+    //console.log(req.headers);
     connectionpool.getConnection(function (err, connection) {
         if (err) {
             console.error('CONNECTION error: ', err);
@@ -39,13 +38,12 @@ app.post("/authenticate", function (req, res) {
                 result: 'error',
                 err: err.code
             });
-            //runs if no user id exists
-        } else if((req.body.user_id == null)) {
+            //runs if no token exists
+        } else if(!(req.body.token == null)) {
             //console.dir(req.body.token);
           //console.log("token exists: " + (req.body.token == null));
             //console.log(res.results[0].username);
-            console.log("no tokenA");
-            console.dir(req.body.username);
+            //console.dir(req.body.username);
             app.locals.username = req.body.username;
             app.locals.password = req.body.password;
 
@@ -69,7 +67,7 @@ app.post("/authenticate", function (req, res) {
                     );
 
                 } else {
-                        console.dir(result);
+                        //console.dir(result);
                     if (result.length > 0) {
                         app.locals.isAuthenticated = true;
                         //console.log("User does exist");
@@ -81,7 +79,7 @@ app.post("/authenticate", function (req, res) {
                     } else {
                         app.locals.isAuthenticated = false;
 
-                        console.log("User does not existA");
+                        console.log("User does not exist");
                        return res.json({
                             "status": "false",
                             "description": "authenticated",
@@ -95,29 +93,18 @@ app.post("/authenticate", function (req, res) {
         }
         //runs if token exists
         else {
-
-          /*  console.log("token exists");
-            console.dir(req.body);*/
+            //console.log("token exists");
             //console.log(res.results[0].username);
             //console.dir(req.body.username);
-           /* console.dir(req.body.user_id);
-            console.dir(req.body.user_token);*/
-            app.locals.user_id = req.body.user_id;
-            app.locals.user_token = req.body.user_token;
-
-/*
-            var query = "SELECT ??, ??, ??, ??, ??, ?? FROM ?? WHERE (??=? AND ??=?) LIMIT 1";
-            var table = [`username`, `password`, 'firstname', 'lastname', `apikey`, `user_id`, `users`, `username`,
-                app.locals.username, `password`, app.locals.password];*/
+            app.locals.username = req.body.username;
+            app.locals.password = req.body.password;
             var query = "SELECT ??, ??, ??, ?? FROM ?? WHERE (??=? AND ??=?) LIMIT 1";
-            var table = [`username`, `password`, `apikey`, `user_id`, `users`, `user_id`,
-                app.locals.user_id, `apikey`, app.locals.user_token];
+            var table = [`username`, `password`, `token`, `user_id`, `users`, `user_id`,
+                app.locals.username, `apikey`, app.locals.password];
             query = mysql.format(query, table);
             res.header('Access-Control-Allow-Origin', '*');
             res.header({'Content-Type': 'application/json'});
             connection.query(query, function (err, result) {
-          /*      console.log("B:");
-                console.dir(result);*/
                 if (err) {
                     app.locals.isAuthenticated = false;
                     console.error('CONNECTION error: ', err);
@@ -130,8 +117,7 @@ app.post("/authenticate", function (req, res) {
                     );
 
                 } else {
-                 /*   console.log("resultB");
-                    console.dir(result);*/
+                    //console.dir(result);
                     if (result.length > 0) {
                         app.locals.isAuthenticated = true;
 
@@ -144,7 +130,7 @@ app.post("/authenticate", function (req, res) {
                     } else {
                         app.locals.isAuthenticated = false;
 
-                        console.log("User does not existB");
+                        console.log("User does not exist");
                         return res.json({
                             "status": "false",
                             "description": "authenticated",
@@ -213,7 +199,6 @@ app.route('/groups/users/:userid')
                 query = mysql.format(query, table);
                 res.header('Access-Control-Allow-Origin', '*');
                 connection.query(query, function(err, result) {
-
                     if (err) {
                         console.error('Error', err);
                         res.statusCode = 404;
@@ -244,14 +229,13 @@ app.route('/groups/users/:userid')
                 });
             } else {
                 var userid = req.params.userid;
-                console.log("UserID: " +req.params.userid);
+
                 var query = "SELECT * FROM groups INNER JOIN users_to_groups ON groups.group_id = users_to_groups.fkid_group WHERE users_to_groups.fkid_user = ?";
                 var table = [userid];
                 //var table = ['groups', "groups_to_markers", "groups.group_id", "groups_to_markers.fkid_group", "markers", "groups_to_markers.fkid_marker", "markers.marker_id", groupid];
                 query = mysql.format(query, table);
                 res.header('Access-Control-Allow-Origin', '*');
                 connection.query(query, function(err, result) {
-                    console.dir(result);
                     if (err) {
                         console.error('Error', err);
                         res.statusCode = 404;
@@ -510,7 +494,7 @@ app.route('/map/:groupid')
                     } else {
                         res.json({
                             "status": "OK",
-                            "description": "Updates the latitude and longitude of a user.",
+                            "description": "Updates the latitudeand longitude of a user.",
                             "results": result
                         });
                     }
