@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorBackground"
+    tools:context=".UserHomeActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/title_activity_user_home"
+        android:id="@+id/tv_user_home_title"
+        android:background="@color/colorBackground"
+        android:textColor="@color/textColor"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:singleLine="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_groups"
+        android:id="@+id/btn_groups"
+        android:layout_below="@+id/tv_user_home_title"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/textColor"
+        android:background="@color/colorSentryAccent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+<!--    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_map"
+        android:id="@+id/btn_map"
+        android:layout_below="@+id/btn_home_logout"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btn_home_logout" />-->
+
+    <Button
+
+        android:layout_marginTop="10dp"
+        android:text="@string/btn_logout"
+        android:id="@+id/btn_home_logout"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/textColor"
+        android:background="@color/colorSentryAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/btn_groups"
+        android:layout_alignEnd="@+id/btn_groups" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sentry_logo"
+        android:id="@+id/iv_sentry_logo_user_home"
+        android:layout_below="@+id/btn_home_logout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
+        android:layout_alignEnd="@+id/btn_home_logout"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

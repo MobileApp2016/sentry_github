@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Sentry</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="title_activity_post">PostActivity</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="tv_message_invalid_login_error">Invalid Login</string>
+    <string name="tv_message_logout_error">Must be logged in to logout</string>
+    <string name="title_activity_user_home">User Home</string>
+    <string name="tv_user_home_title">\'s Home</string>
+    <string name="title_activity_groups">User Groups</string>
+    <string name="btn_groups">Groups</string>
+    <string name="btn_populate_groups">Populate Groups</string>
+    <string name="btn_map">Map</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_map">Map</string>
+    <string name="google_app_id">united-catfish-128014</string>
+</resources>
